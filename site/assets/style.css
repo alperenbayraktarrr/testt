@@ -1,0 +1,15 @@
+:where([class^="ri-"])::before {
+  content: "\f3c2";
+}
+
+body {
+  background: #0F0F0F;
+  min-height: 100vh;
+}
+
+.hero-bg {
+  background: linear-gradient(180deg, #0F0F0F 0%, rgba(15, 15, 15, 0.9) 100%),
+    url('https://readdy.ai/api/search-image?query=modern%20dark%20abstract%20technology%20background%20with%20subtle%20grid%20patterns%20and%20glowing%20particles%2C%20minimalist%20design%20with%20dark%20theme%2C%20professional%20gaming%20aesthetic&width=1920&height=1080&seq=hero005&orientation=landscape');
+  background-size: cover;
+  background-position: center;
+}
