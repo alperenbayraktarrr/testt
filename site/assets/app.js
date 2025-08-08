@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const dropdownButtons = document.querySelectorAll('.group button');
+  const dropdownButtons = document.querySelectorAll('.lh-group .lh-nav-btn');
   dropdownButtons.forEach((button) => {
-    const group = button.closest('.group');
+    const group = button.closest('.lh-group');
     button.addEventListener('mouseenter', function () {
       const icon = this.querySelector('i');
       if (!icon) return;
@@ -16,25 +16,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  const exploreButton = document.querySelector('main button');
-  const clientLogos = document.querySelectorAll('.w-16.h-16');
-  if (exploreButton) {
-    exploreButton.addEventListener('click', function () {
+  const ctaButton = document.querySelector('.lh-cta');
+  if (ctaButton) {
+    ctaButton.addEventListener('click', function () {
       this.style.transform = 'scale(0.95)';
-      setTimeout(() => {
-        this.style.transform = 'scale(1.05)';
-      }, 100);
-      setTimeout(() => {
-        this.style.transform = 'scale(1)';
-      }, 200);
+      setTimeout(() => { this.style.transform = 'scale(1.05)'; }, 100);
+      setTimeout(() => { this.style.transform = 'scale(1)'; }, 200);
     });
   }
-  clientLogos.forEach((logo) => {
-    logo.addEventListener('mouseenter', function () {
-      this.style.transform = 'scale(1.1)';
-    });
-    logo.addEventListener('mouseleave', function () {
-      this.style.transform = 'scale(1)';
-    });
-  });
 });
