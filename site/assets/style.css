@@ -1,15 +1,155 @@
-:where([class^="ri-"])::before {
-  content: "\f3c2";
+:root {
+  --bg: #0F0F0F;
+  --bg-soft: #1A1A1A;
+  --border: #2A2A2A;
+  --border-soft: #2A2A2A;
+  --text: #E5E7EB;
+  --text-dim: #9CA3AF;
+  --primary: #5865F2;
+  --radius: 8px;
+}
+
+html, body {
+  height: 100%;
 }
 
 body {
-  background: #0F0F0F;
-  min-height: 100vh;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-.hero-bg {
-  background: linear-gradient(180deg, #0F0F0F 0%, rgba(15, 15, 15, 0.9) 100%),
-    url('https://readdy.ai/api/search-image?query=modern%20dark%20abstract%20technology%20background%20with%20subtle%20grid%20patterns%20and%20glowing%20particles%2C%20minimalist%20design%20with%20dark%20theme%2C%20professional%20gaming%20aesthetic&width=1920&height=1080&seq=hero005&orientation=landscape');
-  background-size: cover;
-  background-position: center;
+/* Icons baseline fix (from original) */
+:where([class^="ri-"])::before { content: "\f3c2"; }
+
+/* Navbar */
+.lh-navbar {
+  background: var(--bg);
+  border-bottom: 1px solid #1A1A1A;
+  height: 80px;
+  display: flex;
+  align-items: center;
 }
+.lh-logo { height: 48px; }
+.lh-nav { gap: 2rem !important; }
+.lh-nav-link {
+  color: #D1D5DB;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+}
+.lh-nav-link:hover { color: #FFFFFF; }
+
+.lh-group { position: relative; }
+.lh-nav-btn { background: transparent; border: 0; cursor: pointer; color: #D1D5DB; }
+.lh-nav-btn:hover { color: #FFFFFF; }
+.lh-nav-icon { font-size: 0.9rem; }
+
+.lh-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 256px;
+  display: none;
+  background: rgba(17, 24, 39, 0.95);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border: 1px solid #374151;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  padding: 16px;
+}
+.lh-group:hover .lh-dropdown { display: block; }
+.lh-dd-item { color: var(--text); text-decoration: none; padding: 6px 2px; border-radius: 8px; }
+.lh-dd-item:hover { background: rgba(255,255,255,0.02); }
+.lh-dd-icon { color: var(--primary); font-size: 1.25rem; }
+.lh-dd-title { font-weight: 500; }
+.lh-dd-desc { color: #9CA3AF; font-size: 0.875rem; margin: 0 0 0 28px; }
+
+.lh-flag {
+  width: 24px; height: 24px; border-radius: 9999px; object-fit: cover;
+}
+
+/* Buttons */
+.lh-btn {
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease;
+}
+.lh-btn-primary { background: var(--primary); color: white; border: 1px solid var(--primary); }
+.lh-btn-primary:hover { filter: brightness(0.95); box-shadow: 0 8px 24px rgba(88,101,242,0.2); }
+.lh-btn-outline { background: var(--bg-soft); color: #fff; border: 1px solid var(--border); }
+.lh-btn-outline:hover { background: #2A2A2A; border-color: var(--primary); }
+
+/* Hero */
+.lh-hero {
+  background:
+    linear-gradient(180deg, rgba(15,15,15,1) 0%, rgba(15,15,15,0.9) 100%),
+    url('https://readdy.ai/api/search-image?query=modern%20dark%20abstract%20technology%20background%20with%20subtle%20grid%20patterns%20and%20glowing%20particles%2C%20minimalist%20design%20with%20dark%20theme%2C%20professional%20gaming%20aesthetic&width=1920&height=1080&seq=hero005&orientation=landscape');
+  background-position: center;
+  background-size: cover;
+}
+.lh-badge {
+  background: rgba(26,26,26,0.5);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  padding: 10px 16px;
+  color: #D1D5DB;
+}
+.lh-hero-title {
+  margin: 0.5rem 0 1rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+}
+.lh-hero-subtitle {
+  max-width: 680px;
+  color: #D1D5DB;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin: 0 auto 2rem;
+}
+
+/* Grid tiles */
+.lh-section-title { font-size: 1.5rem; font-weight: 600; color: #fff; margin-bottom: 2rem; }
+.lh-grid {
+  --gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+  max-width: 960px;
+}
+@media (min-width: 768px) {
+  .lh-grid { grid-template-columns: repeat(6, 1fr); }
+}
+.lh-tile { position: relative; }
+.lh-tile-glow {
+  position: absolute; inset: 0; border-radius: 12px; filter: blur(10px);
+  background: linear-gradient(90deg, #1A1A1A, #0F0F0F);
+  opacity: 0.75; transition: opacity .25s ease;
+}
+.lh-tile-inner {
+  position: relative; z-index: 1; border-radius: 12px; padding: 24px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border);
+  background: rgba(26,26,26,0.5);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  transition: transform .2s ease, border-color .2s ease;
+}
+.lh-tile-inner.alt { background: rgba(17,24,39,0.5); border-color: #374151; }
+.lh-tile:hover .lh-tile-inner { transform: scale(1.05); border-color: var(--primary); }
+.lh-tile-icon { font-size: 1.75rem; color: var(--primary); }
+.lh-tile-label { margin-top: 0.75rem; font-size: 0.9rem; color: #D1D5DB; }
+.lh-tile-label.alt { color: rgba(156,163,175,0.8); }
+
+/* Links */
+.lh-link { color: var(--primary); text-decoration: none; font-weight: 500; }
+.lh-link:hover { color: #7a85ff; }
+
+/* Utilities */
+.py-lg-6 { padding-top: 6rem !important; padding-bottom: 6rem !important; }
