@@ -1,0 +1,122 @@
+:root {
+  --bg: #0F0F0F;
+  --bg-soft: #1A1A1A;
+  --border: #2A2A2A;
+  --border-soft: #2A2A2A;
+  --text: #E5E7EB;
+  --text-dim: #9CA3AF;
+  --primary: #5865F2;
+  --radius: 8px;
+}
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+:where([class^="ri-"])::before { content: "\f3c2"; }
+
+.lh-navbar { background: var(--bg); border-bottom: 1px solid #1A1A1A; height: 80px; display: flex; align-items: center; }
+.lh-logo { height: 48px; }
+.lh-nav { gap: 2rem !important; }
+.lh-nav-link { color: #D1D5DB; text-decoration: none; font-size: 0.9rem; padding: 0.5rem 0.75rem; }
+.lh-nav-link:hover { color: #FFFFFF; }
+.lh-group { position: relative; }
+.lh-nav-btn { background: transparent; border: 0; cursor: pointer; color: #D1D5DB; }
+.lh-nav-btn:hover { color: #FFFFFF; }
+.lh-nav-icon { font-size: 0.9rem; }
+.lh-dropdown { position: absolute; top: calc(100% + 8px); left: 0; width: 256px; display: none; background: rgba(17, 24, 39, 0.95); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); border: 1px solid #374151; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); padding: 16px; }
+.lh-group:hover .lh-dropdown { display: block; }
+.lh-dd-item { color: var(--text); text-decoration: none; padding: 6px 2px; border-radius: 8px; }
+.lh-dd-item:hover { background: rgba(255,255,255,0.02); }
+.lh-dd-icon { color: var(--primary); font-size: 1.25rem; }
+.lh-dd-title { font-weight: 500; }
+.lh-dd-desc { color: #9CA3AF; font-size: 0.875rem; margin: 0 0 0 28px; }
+.lh-dd-link{display:block;color:#E5E7EB;text-decoration:none;padding:8px 10px;border-radius:8px;border:1px solid transparent}
+.lh-dd-link:hover{background:rgba(255,255,255,.03);border-color:#2A2A2A}
+.lh-flag { width: 24px; height: 24px; border-radius: 9999px; object-fit: cover; }
+
+.lh-btn { border-radius: var(--radius); font-weight: 600; font-size: 1rem; padding: 0.75rem 1.25rem; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease; }
+.lh-btn-primary { background: var(--primary); color: white; border: 1px solid var(--primary); }
+.lh-btn-primary:hover { filter: brightness(0.95); box-shadow: 0 8px 24px rgba(88,101,242,0.2); }
+.lh-btn-outline { background: var(--bg-soft); color: #fff; border: 1px solid var(--border); }
+.lh-btn-outline:hover { background: #2A2A2A; border-color: var(--primary); }
+
+.lh-hero { background: linear-gradient(180deg, rgba(15,15,15,1) 0%, rgba(15,15,15,0.9) 100%), url('https://readdy.ai/api/search-image?query=modern%20dark%20abstract%20technology%20background%20with%20subtle%20grid%20patterns%20and%20glowing%20particles%2C%20minimalist%20design%20with%20dark%20theme%2C%20professional%20gaming%20aesthetic&width=1920&height=1080&seq=hero005&orientation=landscape'); background-position: center; background-size: cover; }
+.lh-badge { background: rgba(26,26,26,0.5); border: 1px solid var(--border); border-radius: 9999px; padding: 10px 16px; color: #D1D5DB; }
+.lh-hero-title { margin: 0.5rem 0 1rem; font-weight: 800; color: #fff; line-height: 1.1; font-size: clamp(2.5rem, 6vw, 5rem); }
+.lh-hero-subtitle { max-width: 680px; color: #D1D5DB; font-size: 1.125rem; line-height: 1.7; margin: 0 auto 2rem; }
+
+.lh-section-title { font-size: 1.5rem; font-weight: 600; color: #fff; margin-bottom: 2rem; }
+.lh-grid { --gap: 2rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); max-width: 960px; }
+@media (min-width: 768px) { .lh-grid { grid-template-columns: repeat(6, 1fr); } }
+.lh-tile { position: relative; }
+.lh-tile-glow { position: absolute; inset: 0; border-radius: 12px; filter: blur(10px); background: linear-gradient(90deg, #1A1A1A, #0F0F0F); opacity: 0.75; transition: opacity .25s ease; }
+.lh-tile-inner { position: relative; z-index: 1; border-radius: 12px; padding: 24px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); background: rgba(26,26,26,0.5); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); transition: transform .2s ease, border-color .2s ease; }
+.lh-tile-inner.alt { background: rgba(17,24,39,0.5); border-color: #374151; }
+.lh-tile:hover .lh-tile-inner { transform: scale(1.05); border-color: var(--primary); }
+.lh-tile-icon { font-size: 1.75rem; color: var(--primary); }
+.lh-tile-label { margin-top: 0.75rem; font-size: 0.9rem; color: #D1D5DB; }
+.lh-tile-label.alt { color: rgba(156,163,175,0.8); }
+.lh-tile-img{width:40px;height:40px;object-fit:contain;filter:saturate(1.1)}
+
+.lh-section { padding: 60px 0; }
+.lh-card { background: rgba(26,26,26,0.5); border: 1px solid var(--border); border-radius: 16px; padding: 24px; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.lh-card:hover { transform: translateY(-2px); border-color: var(--primary); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
+.lh-card-icon { color: var(--primary); font-size: 1.5rem; margin-bottom: 8px; }
+.lh-card-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; color: #fff; }
+.lh-card-desc { color: var(--text-dim); margin: 0; }
+
+.lh-pricing { padding: 60px 0; }
+.lh-plan { background: rgba(26,26,26,0.6); border: 1px solid var(--border); border-radius: 16px; padding: 24px; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.lh-plan.featured { border-color: var(--primary); box-shadow: 0 12px 32px rgba(88,101,242,0.15); }
+.lh-plan:hover { transform: translateY(-2px); border-color: var(--primary); }
+.lh-plan-header { font-weight: 700; color: #fff; margin-bottom: 8px; }
+.lh-price { display: flex; align-items: baseline; gap: 6px; margin-bottom: 12px; }
+.lh-price-value { font-size: 2rem; font-weight: 800; color: #fff; }
+.lh-price-period { color: var(--text-dim); }
+.lh-features { list-style: none; padding: 0; margin: 0 0 16px; }
+.lh-features li { color: var(--text-dim); margin-bottom: 6px; }
+
+.lh-footer { padding: 48px 0 12px; background: #0D0D0D; border-top: 1px solid #1A1A1A; }
+.lh-footer-title { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+.lh-footer-link { display: block; color: var(--text-dim); text-decoration: none; margin-bottom: 6px; }
+.lh-footer-link:hover { color: var(--text); }
+.lh-footer-bottom { border-top: 1px solid #1A1A1A; margin-top: 16px; padding-top: 12px; font-size: 0.9rem; color: var(--text-dim); text-align: center; }
+
+.py-lg-6 { padding-top: 6rem !important; padding-bottom: 6rem !important; }
+
+.lh-mega{width:560px;padding:16px;border-radius:12px}
+.lh-mega-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.lh-mega-item{display:flex;gap:10px;padding:10px;border-radius:10px;color:#E5E7EB;text-decoration:none;border:1px solid rgba(255,255,255,0.04);background:rgba(17,24,39,0.6)}
+.lh-mega-item:hover{border-color:#2A2A2A;background:rgba(26,26,26,0.7)}
+.lh-mega-icon{width:36px;height:36px;object-fit:contain}
+.lh-mega-title{font-weight:700;color:#fff}
+.lh-mega-desc{font-size:.85rem;color:#9CA3AF}
+
+.lh-domain{padding:40px 0}
+.lh-domain-box{background:rgba(26,26,26,0.6);border:1px solid #2A2A2A;border-radius:16px;padding:20px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.lh-domain-text{font-weight:700;color:#fff}
+.lh-domain-form{display:flex;gap:8px;width:100%;max-width:560px}
+.lh-domain-input{flex:1;border-radius:10px;border:1px solid #2A2A2A;background:#111827;color:#E5E7EB;padding:10px 12px;outline:none}
+.lh-domain-input:focus{border-color:#5865F2}
+.lh-domain-hints{color:#9CA3AF;font-size:.9rem}
+
+.lh-stats{padding:40px 0}
+.lh-stat{background:rgba(26,26,26,0.6);border:1px solid #2A2A2A;border-radius:16px;padding:20px;text-align:center}
+.lh-stat-value{font-size:1.6rem;font-weight:800;color:#fff}
+.lh-stat-label{color:#9CA3AF}
+
+.lh-faq{padding:40px 0}
+.accordion-item{background:rgba(26,26,26,0.5);border:1px solid #2A2A2A;color:#E5E7EB}
+.accordion-button{background:#111827;color:#E5E7EB}
+.accordion-button:focus{box-shadow:none;border-color:#5865F2}
+.accordion-button:not(.collapsed){background:#1F2937;color:#fff}
+.accordion-body{background:#0F1623}
+
+.lh-cta-bar{padding:28px 0;background:linear-gradient(90deg, rgba(88,101,242,0.12), rgba(88,101,242,0));border-top:1px solid #1A1A1A;border-bottom:1px solid #1A1A1A}
+.lh-cta-text{font-weight:700;color:#fff}
